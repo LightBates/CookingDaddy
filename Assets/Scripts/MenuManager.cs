@@ -75,7 +75,7 @@ public class MenuManager : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene(gameStartSceneIndex);
+        GameManager.GM.StartGame();
     }
 
     void Tutorial()

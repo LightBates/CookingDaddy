@@ -31,6 +31,10 @@ public class ZestManager : MonoBehaviour
     [SerializeField] private float sprinkleDuration;
     [SerializeField] private ParticleSystem ps;
 
+    private int zestTier = 0;
+
+    [SerializeField] LevelReportCard lrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +65,12 @@ public class ZestManager : MonoBehaviour
             {
                 ToggleFoodPos();
             }
+
+            if (Input.GetButtonDown("Confirm"))
+            {
+                playable = false;
+                StartCoroutine(LockInZest());
+            }
         }
 
         if (sprinkleTime <= 0)
@@ -78,10 +88,12 @@ public class ZestManager : MonoBehaviour
         zestText.text = zestLevel.ToString();
         if(zestLevel > secondLevelAnswer)
         {
+            zestTier = 1;
             answerText.text = sortedAnswers[answerTable, 1];
         }
         if (zestLevel > thirdLevelAnswer)
         {
+            zestTier = 2;
             answerText.text = sortedAnswers[answerTable, 2];
         }
     }
@@ -101,5 +113,53 @@ public class ZestManager : MonoBehaviour
         }
         sprinkleTime = sprinkleDuration;
         ps.Play();
+    }
+
+    IEnumerator LockInZest()
+    {
+        GameManager.GM.EvaluateZest(zestTier);
+
+        int zestDiff = Mathf.Abs(zestTier - GameManager.GM.GetPreferredZest());
+        int prefZest = GameManager.GM.GetPreferredZest();
+        int score = 0;
+
+        string headerText;
+        string scoreText;
+
+        if(zestTier == prefZest)
+        {
+            headerText = "Just right!";
+        }
+        else if (zestTier > prefZest)
+        {
+            headerText = "Too zesty!";
+        }
+        else
+        {
+            headerText = "Not zesty enough!";
+        }
+
+        switch (zestDiff)
+        {
+            case 0:
+                scoreText = "+50";
+                score = 50;
+                break;
+            case 1:
+                scoreText = "+25";
+                score = 25;
+                break;
+            case 2:
+                scoreText = "+0";
+                break;
+            default:
+                scoreText = "+0";
+                break;
+        }
+
+        lrc.SetText(headerText, scoreText);
+        lrc.StartMoving();
+        yield return new WaitForSeconds(1.0f);
+        GameManager.GM.NextLevel(score);
     }
 }

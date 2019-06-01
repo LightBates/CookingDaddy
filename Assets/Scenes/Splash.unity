@@ -366,6 +366,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a72ea5471aea6e48a1fd9d48114a4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  potentialNames:
+  - Ashley
+  - Sam
+  - Chris
+  - Pat
+  - Alex
+  potentialPics: []
+  dateName: 
+  datePic: {fileID: 0}
+  preferredZest: 0
+  minigameSceneIndices: 03000000
+  reportCardSceneIndex: 2
 --- !u!4 &1560817392
 Transform:
   m_ObjectHideFlags: 0
