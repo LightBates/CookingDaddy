@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     private int menuCount;
     private int currentIndex;
-    private int gameStartSceneIndex = 1;
+    private int gameStartSceneIndex = 2;
 
     [SerializeField] GameObject[] menuOptions;
     [SerializeField] GameObject cursor;
@@ -45,7 +45,24 @@ public class MenuManager : MonoBehaviour
 
         if (Input.GetButtonDown("Confirm"))
         {
-
+            switch (currentIndex)
+            {
+                default:
+                    StartGame();
+                    break;
+                case 0:
+                    StartGame();
+                    break;
+                case 1:
+                    Tutorial();
+                    break;
+                case 2:
+                    Credits();
+                    break;
+                case 3:
+                    Options();
+                    break;
+            }
         }
     }
 
