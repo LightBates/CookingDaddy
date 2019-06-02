@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     // Tables for random date assemblage
     [SerializeField] private string[] potentialNames;
     [SerializeField] private Sprite[] potentialPics;
+    [SerializeField] private string[] potentialAges;
+    [SerializeField] private string[] potentialGenders;
+    
 
     // Variables used for the "date"
     [SerializeField] private string dateName;
@@ -21,12 +24,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int preferredSaute;
 
     [SerializeField] private int[] minigameSceneIndices;
+    private List<int> minigameList = new List<int>();
     private int firstMinigame, secondMinigame, thirdMinigame;
     private int currentScore;
     private int currentGameIndex = 0;
 
     [SerializeField] private int reportCardSceneIndex;
 
+    [SerializeField] public GameObject fader, phone;
+    [SerializeField] public PhoneManager pm;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +54,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        else if (Input.GetButtonDown("Quit"))
+        else if (Input.GetButtonDown("Exit"))
         {
             Application.Quit();
         }
@@ -62,9 +68,24 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Set default values
-        firstMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length))];
-        secondMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length ))];
-        thirdMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length ))];
+        for (int i = 0; i < minigameSceneIndices.Length; i++)
+        {
+            minigameList.Add(minigameSceneIndices[i]);
+        }
+
+        int randoValue;
+
+        randoValue = (int)(Random.value * (minigameList.Count));
+        firstMinigame = minigameList[randoValue];
+        minigameList.RemoveAt(randoValue);
+
+        randoValue = (int)(Random.value * (minigameList.Count));
+        secondMinigame = minigameList[randoValue];
+        minigameList.RemoveAt(randoValue);
+
+        randoValue = (int)(Random.value * (minigameList.Count));
+        thirdMinigame = minigameList[randoValue];
+        minigameList.RemoveAt(randoValue);
 
         currentScore = 0;
         level1Score = 0;
@@ -73,22 +94,48 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(firstMinigame);
 
-        //
-        if(potentialPics.Length != 0)
+        for (int i = 0; i <= 2; i++)
         {
-            datePic = potentialPics[(int)(Random.value * (potentialPics.Length - 1))];
-        }
-        dateName = potentialNames[(int)(Random.value * (potentialNames.Length - 1))];
-        preferredZest = (int)(Random.value * 3f);
-        preferredPinch = (int)(Random.value * 3f);
-        preferredSaute = (int)(Random.value * 3f);
+            if (potentialPics.Length != 0)
+            {
+                datePic = potentialPics[(int)(Random.value * (potentialPics.Length - 1))];
+            }
 
-        Debug.Log("Date's name is " + dateName);
-        Debug.Log("Preferred zest level: " + preferredZest);
-        Debug.Log("Preferred pinch level: " + preferredPinch);
-        Debug.Log("Preferred saute level: " + preferredSaute);
+            dateName = potentialNames[(int)(Random.value * (potentialNames.Length - 1))];
+            
+
+            
+            preferredZest = (int)(Random.value * 3f);
+            preferredPinch = (int)(Random.value * 3f);
+            preferredSaute = (int)(Random.value * 3f);
+
+            pm.SetProfile(i, 
+                datePic, 
+                dateName, 
+                potentialGenders[(int)(Random.value * (potentialGenders.Length-1))],
+                potentialAges[(int)(Random.value * (potentialAges.Length - 1))],
+                preferredZest, 
+                preferredSaute, 
+                preferredPinch);
+        }
+
+        fader.SetActive(true);
+        phone.SetActive(true);
 
         currentGameIndex = 1;
+    }
+
+    public void SetDate(string name, Sprite pic, int zest, int pinch, int saute)
+    {
+        dateName = name;
+        if(pic != null)
+        {
+
+        }
+        preferredZest = zest;
+        preferredPinch = pinch;
+        preferredSaute = saute;
+
         SceneManager.LoadScene(firstMinigame);
 
     }
@@ -159,6 +206,15 @@ public class GameManager : MonoBehaviour
             currentScore += 25;
         }
     }
+
+    public void LockInDate(string name, Sprite pic, int zest, int pinch, int saute)
+    {
+        dateName = name;
+        datePic = pic;
+        preferredZest = zest;
+        preferredPinch = pinch;
+        preferredSaute = saute;
+}
 
     public int GetPreferredZest()
     {

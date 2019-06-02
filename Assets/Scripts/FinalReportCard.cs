@@ -39,11 +39,12 @@ public class FinalReportCard : MonoBehaviour
 
         float scorePercentage = (float)(s1+ s2 +s3) / 150f;
         letterGrade.text = "F";
-        if (scorePercentage > 0.6f)
+
+        if (scorePercentage >= 0.5f)
         {
             letterGrade.text = "D";
         }
-        if(scorePercentage > 0.7f)
+        if(scorePercentage > 0.6f)
         {
             letterGrade.text = "C";
         }
@@ -51,10 +52,7 @@ public class FinalReportCard : MonoBehaviour
         {
             letterGrade.text = "B";
         }
-        if (scorePercentage > 0.9f)
-        {
-            letterGrade.text = "A";
-        }
+        
         if(scorePercentage >= 1.0f)
         {
             letterGrade.text = "A+";
