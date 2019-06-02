@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite datePic;
     [SerializeField] private int preferredZest;
     [SerializeField] private int preferredPinch;
+    [SerializeField] private int preferredSaute;
 
     [SerializeField] private int[] minigameSceneIndices;
     private int firstMinigame, secondMinigame, thirdMinigame;
