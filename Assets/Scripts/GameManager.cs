@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string dateName;
     [SerializeField] private Sprite datePic;
     [SerializeField] private int preferredZest;
+    [SerializeField] private int preferredPinch;
 
     [SerializeField] private int[] minigameSceneIndices;
     private int firstMinigame, secondMinigame, thirdMinigame;
@@ -60,9 +61,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Set default values
-        firstMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length - 1))];
-        secondMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length - 1))];
-        thirdMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length - 1))];
+        firstMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length))];
+        secondMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length ))];
+        thirdMinigame = minigameSceneIndices[(int)(Random.value * (minigameSceneIndices.Length ))];
 
         currentScore = 0;
         level1Score = 0;
@@ -124,9 +125,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EvaluatePinch(int pinch)
+    {
+        if(pinch == preferredPinch)
+        {
+            currentScore += 50;
+        }else if (Mathf.Abs(pinch - preferredPinch) > 1)
+        {
+            currentScore += 0;
+        }
+        else
+        {
+            currentScore += 25;
+        }
+    }
+
     public int GetPreferredZest()
     {
         return preferredZest;
+    }
+
+    public int GetPreferredPinch()
+    {
+        return preferredPinch;
     }
 
     public void MakeFinalReport(FinalReportCard frc)

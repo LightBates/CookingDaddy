@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zesting.unity
     guid: 03b8f3b0652bc2d4d80524eb3791845c
+  - enabled: 1
+    path: Assets/Scenes/Pinching.unity
+    guid: a8f648ab86612c24aa8850945baa1561
   m_configObjects: {}
