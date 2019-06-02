@@ -80,9 +80,13 @@ public class GameManager : MonoBehaviour
         }
         dateName = potentialNames[(int)(Random.value * (potentialNames.Length - 1))];
         preferredZest = (int)(Random.value * 3f);
+        preferredPinch = (int)(Random.value * 3f);
+        preferredSaute = (int)(Random.value * 3f);
 
         Debug.Log("Date's name is " + dateName);
         Debug.Log("Preferred zest level: " + preferredZest);
+        Debug.Log("Preferred pinch level: " + preferredPinch);
+        Debug.Log("Preferred saute level: " + preferredSaute);
 
         currentGameIndex = 1;
         SceneManager.LoadScene(firstMinigame);
@@ -141,6 +145,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EvaluateSaute(int saute)
+    {
+        if(saute == preferredSaute)
+        {
+            currentScore += 50;
+        }else if(Mathf.Abs(saute - preferredPinch) > 1)
+        {
+            currentScore += 0;
+        }
+        else
+        {
+            currentScore += 25;
+        }
+    }
+
     public int GetPreferredZest()
     {
         return preferredZest;
@@ -149,6 +168,11 @@ public class GameManager : MonoBehaviour
     public int GetPreferredPinch()
     {
         return preferredPinch;
+    }
+
+    public int GetPreferredSaute()
+    {
+        return preferredSaute;
     }
 
     public void MakeFinalReport(FinalReportCard frc)

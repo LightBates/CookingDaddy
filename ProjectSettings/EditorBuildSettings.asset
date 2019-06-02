@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pinching.unity
     guid: a8f648ab86612c24aa8850945baa1561
+  - enabled: 1
+    path: Assets/Scenes/Sauteing.unity
+    guid: 5a6eb6eb12bf27045b3e23a9971c219a
   m_configObjects: {}

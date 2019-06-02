@@ -59,7 +59,6 @@ public class MovingFinger : MonoBehaviour
 
             if (dunking)
             {
-                Debug.Log("i'm dunkin");
                 timer += Time.deltaTime;
                 newPos = Vector3.Lerp(dunkStartPos, dunkEndPos, timer / dunkTime);
                 newThumbPos = thumb.transform.localPosition;
@@ -92,12 +91,10 @@ public class MovingFinger : MonoBehaviour
             }
             else if (movingLeft)
             {
-                Debug.Log("i'm not dunkin");
                 newPos = Vector3.Lerp(rightPos, leftPos, timer / asLongAsItShouldTake);
             }
             else if (!movingLeft)
             {
-                Debug.Log("i'm not dunkin");
                 newPos = Vector3.Lerp(leftPos, rightPos, timer / asLongAsItShouldTake);
             }
 

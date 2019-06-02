@@ -377,7 +377,8 @@ MonoBehaviour:
   datePic: {fileID: 0}
   preferredZest: 0
   preferredPinch: 0
-  minigameSceneIndices: 0300000004000000
+  preferredSaute: 0
+  minigameSceneIndices: 030000000400000005000000
   reportCardSceneIndex: 2
 --- !u!4 &1560817392
 Transform:
