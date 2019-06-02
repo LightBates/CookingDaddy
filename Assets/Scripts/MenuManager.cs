@@ -12,6 +12,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject[] menuOptions;
     [SerializeField] GameObject cursor;
 
+    [SerializeField] PhoneManager pm;
+    [SerializeField] GameObject phone, fader;
+
+    private bool playable = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,11 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playable)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Down"))
         {
             currentIndex += 1;
@@ -75,6 +85,7 @@ public class MenuManager : MonoBehaviour
 
     void StartGame()
     {
+        playable = false;
         GameManager.GM.StartGame();
     }
 
@@ -91,5 +102,14 @@ public class MenuManager : MonoBehaviour
     void Options()
     {
 
+    }
+    private void Awake()
+    {
+        GameManager.GM.pm = pm;
+        GameManager.GM.phone = phone;
+        GameManager.GM.fader = fader;
+
+        phone.SetActive(false);
+        fader.SetActive(false);
     }
 }

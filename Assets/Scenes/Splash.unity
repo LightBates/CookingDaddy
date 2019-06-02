@@ -367,19 +367,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potentialNames:
-  - Ashley
-  - Sam
-  - Chris
-  - Pat
-  - Alex
-  potentialPics: []
+  - Jordan Micheals
+  - Taylor Shwift
+  - Alex Despecit
+  - Bailey Creem
+  - Jack Ovh
+  - Quinn Tillion
+  potentialPics:
+  - {fileID: 21300000, guid: 65d0ed893075db34c83c2470bbe2efd5, type: 3}
+  - {fileID: 21300000, guid: 160abaf72edf9e54db98b7301ee8d558, type: 3}
+  - {fileID: 21300000, guid: 4c58d86d6aa720145a0b570cd4e54f80, type: 3}
+  - {fileID: 21300000, guid: 83beb2ffe07c3424f89585bb2bcbbabc, type: 3}
+  - {fileID: 21300000, guid: 6f967180a31a409409144df441f53c33, type: 3}
+  potentialAges:
+  - Timeless
+  - Guess
+  - Twenty-Something
+  - Legal, ok?
+  - Young Entrepreneur
+  - 23
+  potentialGenders:
+  - Two Ducks
+  - Bear
+  - 8" Uncut
+  - '[REDACTED]'
+  - Top
+  - No.
   dateName: 
-  datePic: {fileID: 0}
+  datePic: {fileID: 21300000, guid: 65d0ed893075db34c83c2470bbe2efd5, type: 3}
   preferredZest: 0
   preferredPinch: 0
   preferredSaute: 0
   minigameSceneIndices: 030000000400000005000000
   reportCardSceneIndex: 2
+  fader: {fileID: 0}
+  phone: {fileID: 0}
+  pm: {fileID: 0}
 --- !u!4 &1560817392
 Transform:
   m_ObjectHideFlags: 0
