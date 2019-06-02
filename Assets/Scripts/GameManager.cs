@@ -91,8 +91,7 @@ public class GameManager : MonoBehaviour
         level1Score = 0;
         level2score = 0;
         level3score = 0;
-
-        Debug.Log(firstMinigame);
+        
 
         for (int i = 0; i <= 2; i++)
         {

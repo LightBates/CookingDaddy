@@ -27,28 +27,27 @@ public class PhoneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Left"))
+        if (Input.GetButtonDown("Right"))
         {
             if(!(currentProfile >= 2))
             {
-                Debug.Log("Ok ok i'll move left");
                 currentProfile += 1;
-                profile1TargetLoc.x -= xMoveOffset;   
+                profile1TargetLoc.x -= xMoveOffset;
             }
-            leftGlow.GetComponent<AlwaysFadeOut>().MakeGlow();
-        }else if (Input.GetButtonDown("Right"))
+            rightGlow.GetComponent<AlwaysFadeOut>().MakeGlow();
+        }
+        else if (Input.GetButtonDown("Left"))
         {
             if (!(currentProfile <= 0))
             {
                 currentProfile -= 1;
                 profile1TargetLoc.x += xMoveOffset;
             }
-            rightGlow.GetComponent<AlwaysFadeOut>().MakeGlow();
+            leftGlow.GetComponent<AlwaysFadeOut>().MakeGlow();
         }
 
         if(Vector3.Distance(profile1.GetComponent<RectTransform>().localPosition, profile1TargetLoc) > 0.5f)
         {
-            Debug.Log("I'm moving, I'm moving");
             newPos = Vector3.Lerp(profile1.GetComponent<RectTransform>().localPosition, profile1TargetLoc, smoothing);
             moveDist = newPos.x - profile1.GetComponent<RectTransform>().localPosition.x;
 
