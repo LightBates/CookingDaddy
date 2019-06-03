@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite[] potentialPics;
     [SerializeField] private string[] potentialAges;
     [SerializeField] private string[] potentialGenders;
+
+    [SerializeField] public string[] zestInterests;
+    [SerializeField] public string[] pinchInterests;
+    [SerializeField] public string[] sauteInterests;
     
 
     // Variables used for the "date"

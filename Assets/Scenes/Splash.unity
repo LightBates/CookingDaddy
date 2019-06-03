@@ -393,6 +393,19 @@ MonoBehaviour:
   - '[REDACTED]'
   - Top
   - No.
+  zestInterests:
+  - Chicken nuggets with no sauce, please and thank you.
+  - "Remember Warheads? The \u201890s were cool."
+  - Lemon laws excite me... Sexually.
+  pinchInterests:
+  - "Keep babies away from me. It\u2019s a mutual respect thing."
+  - "Send animal videos so I know it\u2019s real."
+  - " I know what dog breed I\u2019d be!!! OwO ~I\u2019m a musky wusky husky fuw baaaby~"
+  sauteInterests:
+  - "I can\u2019t stand when no one is saying anything in the car."
+  - Silence is golden.
+  - 'My ideal date involves going to an art gallery and sharing our critiques using
+    only our eyes. '
   dateName: 
   datePic: {fileID: 21300000, guid: 65d0ed893075db34c83c2470bbe2efd5, type: 3}
   preferredZest: 0

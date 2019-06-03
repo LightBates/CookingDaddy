@@ -57,9 +57,9 @@ public class DatingProfile : MonoBehaviour
 
         //TODO: Make randomized string table
         string interestsParagraph = "";
-        interestsParagraph += "Preferred pinch: " + prefPinch.ToString() + "\n\n";
-        interestsParagraph += "Preferred zest: " + prefZest.ToString() + "\n\n";
-        interestsParagraph += "Preferred saute: " + prefSaute + "\n\n";
+        interestsParagraph += GameManager.GM.zestInterests[prefZest] + "\n\n";
+        interestsParagraph += GameManager.GM.pinchInterests[prefPinch] + "\n\n";
+        interestsParagraph += GameManager.GM.sauteInterests[prefSaute] + "\n\n";
 
 
         interestsText.text = interestsParagraph;

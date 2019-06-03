@@ -10,32 +10,66 @@ public class PinchingManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI question;
     [SerializeField] private TextMeshProUGUI answer;
 
+    [SerializeField] private GameObject finger, thumb;
+
     // 0 for pinch, 1 for smidge, 2 for dash
     [SerializeField] private int pinchLevel;
 
     [SerializeField] LevelReportCard lrc;
 
+
+    [SerializeField] private string[] answers;
+    [SerializeField] private string[] questions;
+    private string[,] sortedAnswers;
+    private int answerTable;
+
+    [SerializeField] private TextMeshProUGUI answerText, questionText;
+    [SerializeField] float secondLevelAnswer, thirdLevelAnswer;
+
     // Start is called before the first frame update
     void Start()
     {
+        sortedAnswers = new string[answers.Length / 3, 3];
+        int counter = 0;
+        foreach (string str in answers)
+        {
+            sortedAnswers[counter / 3, counter % 3] = answers[counter];
+            counter++;
+        }
 
-        
+        answerTable = (int)(Random.value * (counter / 3));
+
+        answerText.text = sortedAnswers[answerTable, 0];
+        questionText.text = questions[answerTable];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float distance = 0f;
+
+        distance = Vector3.Distance(thumb.transform.localPosition, finger.transform.localPosition);
+        if(distance > thirdLevelAnswer)
+        {
+            answerText.text = sortedAnswers[answerTable, 2];
+        }else if(distance > secondLevelAnswer)
+        {
+            answerText.text = sortedAnswers[answerTable, 1];
+        }
+        else
+        {
+            answerText.text = sortedAnswers[answerTable, 0];
+        }
     }
 
     public IEnumerator LockInPinch(float dist)
     {
         pinchLevel = 0;
-        if(dist > 3.5)
+        if(dist > secondLevelAnswer)
         {
             pinchLevel = 1;
         }
-        if(dist > 7)
+        if(dist > thirdLevelAnswer)
         {
             pinchLevel = 2;
         }
@@ -51,14 +85,14 @@ public class PinchingManager : MonoBehaviour
 
         if(pinchLevel == prefPinch)
         {
-            headerText = "Just right!";
+            headerText = "A Real Sweetie!";
         }else if(pinchLevel > prefPinch)
         {
-            headerText = "Too clingy!";
+            headerText = "You’re Giving Me Diabetes!";
         }
         else
         {
-            headerText = "Too stingy!";
+            headerText = "No Sweet Tooth?";
         }
 
         switch (pinchDiff)

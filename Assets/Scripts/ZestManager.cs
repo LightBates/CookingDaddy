@@ -14,10 +14,11 @@ public class ZestManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI zestText;
 
     [SerializeField] private string[] answers;
+    [SerializeField] private string[] questions;
     private string[,] sortedAnswers;
     private int answerTable;
 
-    [SerializeField] private TextMeshProUGUI answerText;
+    [SerializeField] private TextMeshProUGUI answerText, questionText;
     [SerializeField] int secondLevelAnswer, thirdLevelAnswer;
 
     /// <summary>
@@ -49,6 +50,8 @@ public class ZestManager : MonoBehaviour
         answerTable = (int)(Random.value * (counter / 3));
 
         answerText.text = sortedAnswers[answerTable, 0];
+        questionText.text = questions[answerTable];
+
 
     }
 
@@ -128,15 +131,15 @@ public class ZestManager : MonoBehaviour
 
         if(zestTier == prefZest)
         {
-            headerText = "Just right!";
+            headerText = "Just the Right Zest!";
         }
         else if (zestTier > prefZest)
         {
-            headerText = "Too zesty!";
+            headerText = "Dial Back the Zest!";
         }
         else
         {
-            headerText = "Not zesty enough!";
+            headerText = "Too Bland!";
         }
 
         switch (zestDiff)

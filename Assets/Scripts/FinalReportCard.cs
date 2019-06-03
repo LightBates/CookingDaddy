@@ -10,7 +10,7 @@ public class FinalReportCard : MonoBehaviour
     [SerializeField] TextMeshProUGUI score1, score2, score3, totalScore;
 
     // This is text for now, and should be replaced with sprites
-    [SerializeField] TextMeshProUGUI letterGrade;
+    [SerializeField] TextMeshProUGUI letterGrade, header;
 
     // Start is called before the first frame update
     void Start()
@@ -39,23 +39,28 @@ public class FinalReportCard : MonoBehaviour
 
         float scorePercentage = (float)(s1+ s2 +s3) / 150f;
         letterGrade.text = "F";
+        header.text = "C’est Bullshit!";
 
         if (scorePercentage >= 0.5f)
         {
             letterGrade.text = "D";
+            header.text = "Laisse tomber…";
         }
         if(scorePercentage > 0.6f)
         {
             letterGrade.text = "C";
+            header.text = "Allez!";
         }
         if(scorePercentage > 0.8f)
         {
             letterGrade.text = "B";
+            header.text = "Fin!";
         }
         
         if(scorePercentage >= 1.0f)
         {
             letterGrade.text = "A+";
+            header.text = "Génial!";
         }
     }
 }

@@ -22,10 +22,24 @@ public class SauteManager : MonoBehaviour
     [SerializeField] private GameObject crumblies;
     [SerializeField] private Gradient rawToCooked;
 
+
+
+    [SerializeField] private string[] answers;
+    [SerializeField] private string[] questions;
+    private int answerTable;
+
+    [SerializeField] private TextMeshProUGUI answerText, questionText;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        int counter = 0;
+
+        answerTable = (int)(Random.value * (counter / 3));
+
+        answerText.text = answers[0];
+        questionText.text = questions[answerTable];
+
     }
 
     // Update is called once per frame
@@ -52,8 +66,7 @@ public class SauteManager : MonoBehaviour
                 {
                     sauteLevel = 2;
                 }
-
-                Debug.Log("Saute level is " + sauteLevel);
+                
                 StartCoroutine(LockInSaute());
             }
             else
@@ -69,11 +82,16 @@ public class SauteManager : MonoBehaviour
             timerText.text = timer.ToString().Substring(0, 5);
             if(timer <= secondLevelSauteCutoff)
             {
+                if(timer >= firstLevelSauteCutoff)
+                {
+                    answerText.text = answers[1];
+                }
                 crumblies.GetComponent<MeshRenderer>().material.color = rawToCooked.Evaluate(timer / secondLevelSauteCutoff);
             }
             else
             {
                 crumblies.GetComponent<MeshRenderer>().material.color = rawToCooked.Evaluate(1);
+                answerText.text = answers[2];
             }
         }
         
@@ -93,14 +111,14 @@ public class SauteManager : MonoBehaviour
 
         if(sauteLevel == prefSaute)
         {
-            headerText = "Just right!";
+            headerText = "Just the Right Amount of Silence!";
         }else if (sauteLevel > prefSaute)
         {
-            headerText = "Kinda awkward...";
+            headerText = "You’re Quieter Than the Grave!";
         }
         else
         {
-            headerText = "Are you always 'on'?";
+            headerText = "You Talk Too Much!";
         }
 
         switch (sauteDiff)
