@@ -112,7 +112,8 @@ public class GameManager : MonoBehaviour
             preferredPinch = (int)(Random.value * 3f);
             preferredSaute = (int)(Random.value * 3f);
 
-            pm.SetProfile(i, 
+            pm.SetProfile
+                (i, 
                 datePic, 
                 dateName, 
                 potentialGenders[(int)(Random.value * (potentialGenders.Length-1))],
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
         dateName = name;
         if(pic != null)
         {
-
+            datePic = pic;
         }
         preferredZest = zest;
         preferredPinch = pinch;
@@ -232,6 +233,11 @@ public class GameManager : MonoBehaviour
     public int GetPreferredSaute()
     {
         return preferredSaute;
+    }
+
+    public Sprite GetDatePic()
+    {
+        return datePic;
     }
 
     public void MakeFinalReport(FinalReportCard frc)

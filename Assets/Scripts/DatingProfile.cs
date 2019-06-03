@@ -16,7 +16,7 @@ public class DatingProfile : MonoBehaviour
 
     public int preferredZest, preferredSaute, preferredPinch;
 
-    private Image pic;
+    public Sprite pic;
     private TextMeshProUGUI nameText, genderText, ageText, interestsText;
 
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class DatingProfile : MonoBehaviour
         if (pic != null)
         {
             displayPicture.sprite = pic;
+            this.pic = pic;
         }
         this.dateName = name;
         this.nameText.text = name;
@@ -61,6 +62,9 @@ public class DatingProfile : MonoBehaviour
         interestsParagraph += GameManager.GM.pinchInterests[prefPinch] + "\n\n";
         interestsParagraph += GameManager.GM.sauteInterests[prefSaute] + "\n\n";
 
+        preferredSaute = prefSaute;
+        preferredZest = prefZest;
+        preferredPinch = prefPinch;
 
         interestsText.text = interestsParagraph;
     }

@@ -9,6 +9,7 @@ public class PhoneManager : MonoBehaviour
     [SerializeField] private Image rightGlow, leftGlow;
     [SerializeField] private DatingProfile profile1, profile2, profile3;
     [SerializeField] private DatingProfile[] dps;
+    [SerializeField] private LerpInAndOut liao;
 
     [SerializeField] private Vector3 profile1TargetLoc, newPos;
     private float moveDist;
@@ -64,7 +65,7 @@ public class PhoneManager : MonoBehaviour
 
         if (Input.GetButtonDown("Submit"))
         {
-            GameManager.GM.SetDate(dps[currentProfile].name, null, dps[currentProfile].preferredZest, dps[currentProfile].preferredPinch, dps[currentProfile].preferredSaute);
+            StartCoroutine(DismissPhone());
         }
 
     }
@@ -72,6 +73,13 @@ public class PhoneManager : MonoBehaviour
     public void SetProfile(int profileIndex, Sprite pic, string name, string gender, string age, int prefZest, int prefSaute, int prefPinch)
     {
         dps[profileIndex].MakeProfile(pic, name, gender, age, prefZest, prefSaute, prefPinch);
+    }
+
+    private IEnumerator DismissPhone()
+    {
+        liao.LerpOut();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.GM.SetDate(dps[currentProfile].name, dps[currentProfile].pic, dps[currentProfile].preferredZest, dps[currentProfile].preferredPinch, dps[currentProfile].preferredSaute);
     }
 
 }

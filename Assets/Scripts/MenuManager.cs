@@ -15,6 +15,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] PhoneManager pm;
     [SerializeField] GameObject phone, fader;
 
+    [SerializeField] private LerpInAndOut liao;
+
     private bool playable = true;
 
     // Start is called before the first frame update
@@ -85,6 +87,7 @@ public class MenuManager : MonoBehaviour
 
     void StartGame()
     {
+        liao.LerpIn();
         playable = false;
         GameManager.GM.StartGame();
     }

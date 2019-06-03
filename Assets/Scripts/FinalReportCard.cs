@@ -54,13 +54,13 @@ public class FinalReportCard : MonoBehaviour
         if(scorePercentage > 0.8f)
         {
             letterGrade.text = "B";
-            header.text = "Fin!";
+            header.text = "Génial!";
         }
         
         if(scorePercentage >= 1.0f)
         {
             letterGrade.text = "A+";
-            header.text = "Génial!";
+            header.text = "C'est Magnifique!";
         }
     }
 }
