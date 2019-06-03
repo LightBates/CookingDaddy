@@ -115,7 +115,7 @@ public class PinchingManager : MonoBehaviour
 
         lrc.SetText(headerText, scoreText);
         lrc.StartMoving();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2f);
         GameManager.GM.NextLevel(score);
     }
 }
