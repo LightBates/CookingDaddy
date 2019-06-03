@@ -12,6 +12,8 @@ public class FinalReportCard : MonoBehaviour
     // This is text for now, and should be replaced with sprites
     [SerializeField] TextMeshProUGUI letterGrade, header;
 
+    [SerializeField] private ParticleSystem ps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,26 +43,35 @@ public class FinalReportCard : MonoBehaviour
         letterGrade.text = "F";
         header.text = "C’est Bullshit!";
 
+        ParticleSystem.EmissionModule em = ps.emission;
+
+        em.rateOverTime = 1f;
+        ps.Play();
+
         if (scorePercentage >= 0.5f)
         {
             letterGrade.text = "D";
             header.text = "Laisse tomber…";
+            em.rateOverTime = 5f;
         }
         if(scorePercentage > 0.6f)
         {
             letterGrade.text = "C";
             header.text = "Allez!";
+            em.rateOverTime = 10f;
         }
         if(scorePercentage > 0.8f)
         {
             letterGrade.text = "B";
             header.text = "Génial!";
+            em.rateOverTime = 20f;
         }
         
         if(scorePercentage >= 1.0f)
         {
             letterGrade.text = "A+";
             header.text = "C'est Magnifique!";
+            em.rateOverTime = 50f;
         }
     }
 }

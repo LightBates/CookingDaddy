@@ -24,6 +24,8 @@ public class MovingFinger : MonoBehaviour
 
     [SerializeField] private PinchingManager pm;
 
+    [SerializeField] private ParticleSystem psBase, psSprinkles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,10 +74,26 @@ public class MovingFinger : MonoBehaviour
                     undunking = true;
                     dunking = false;
                     StartCoroutine(pm.LockInPinch(amount));
+
+                    psBase.transform.localPosition = Vector3.Lerp(this.transform.localPosition, thumb.transform.localPosition, 0.5f) - new Vector3(1f, 3.5f, 0);
+                    psSprinkles.transform.localPosition = Vector3.Lerp(this.transform.localPosition, thumb.transform.localPosition, 0.5f) - new Vector3(1f, 3.5f, 0);
+
+                    ParticleSystem.ShapeModule sh = psBase.shape;
+                    sh.scale = new Vector3(Vector3.Distance(this.transform.localPosition, thumb.transform.localPosition) * 0.8f, 1, 1);
+
+                    ParticleSystem.ShapeModule sh2 = psSprinkles.shape;
+                    sh2.radius = Vector3.Distance(this.transform.localPosition, thumb.transform.localPosition)/2f;
+
+                    psBase.Play();
+                    psSprinkles.Play();
+
                 }
 
             } else if (undunking)
             {
+                psBase.transform.localPosition = Vector3.Lerp(this.transform.localPosition, thumb.transform.localPosition, 0.5f) - new Vector3(1f, 3.5f, 0);
+                psSprinkles.transform.localPosition = Vector3.Lerp(this.transform.localPosition, thumb.transform.localPosition, 0.5f) - new Vector3(1f, 3.5f, 0);
+
                 timer += Time.deltaTime;
                 newPos = Vector3.Lerp(dunkEndPos, dunkStartPos, timer / dunkTime);
                 newThumbPos = thumb.transform.localPosition;

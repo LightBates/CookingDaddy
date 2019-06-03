@@ -372,8 +372,8 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
-  playOnAwake: 1
+  prewarm: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -1190,7 +1190,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6635,6 +6635,7 @@ MonoBehaviour:
   totalScore: {fileID: 181689300}
   letterGrade: {fileID: 114346568}
   header: {fileID: 4564643917708168541}
+  ps: {fileID: 130391434}
 --- !u!114 &4564643917708168541
 MonoBehaviour:
   m_ObjectHideFlags: 0

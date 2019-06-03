@@ -19,6 +19,10 @@ public class MenuManager : MonoBehaviour
 
     private bool playable = true;
 
+    [SerializeField] private GameObject creditsDisplay, menuDisplay;
+    private bool menu = true;
+    private bool credits = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,16 @@ public class MenuManager : MonoBehaviour
     {
         if (!playable)
         {
+            return;
+        }
+
+        if (credits)
+        {
+            if (Input.GetButtonDown("Confirm"))
+            {
+                ShowMenu();
+                return;
+            }
             return;
         }
 
@@ -66,12 +80,9 @@ public class MenuManager : MonoBehaviour
                     StartGame();
                     break;
                 case 1:
-                    Tutorial();
-                    break;
-                case 2:
                     Credits();
                     break;
-                case 3:
+                case 2:
                     Options();
                     break;
             }
@@ -92,6 +103,15 @@ public class MenuManager : MonoBehaviour
         GameManager.GM.StartGame();
     }
 
+    void ShowMenu()
+    {
+        credits = false;
+        creditsDisplay.SetActive(false);
+        menuDisplay.SetActive(true);
+        cursor.SetActive(true);
+
+    }
+
     void Tutorial()
     {
 
@@ -99,7 +119,10 @@ public class MenuManager : MonoBehaviour
 
     void Credits()
     {
-
+        credits = true;
+        creditsDisplay.SetActive(true);
+        menuDisplay.SetActive(false);
+        cursor.SetActive(false);
     }
 
     void Options()
