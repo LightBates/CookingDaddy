@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -13,6 +14,9 @@ public class FinalReportCard : MonoBehaviour
     [SerializeField] TextMeshProUGUI letterGrade, header;
 
     [SerializeField] private ParticleSystem ps;
+
+    [SerializeField] private Image stamp;
+    [SerializeField] private Sprite aStamp, bStamp, cStamp, dStamp, fStamp;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +40,10 @@ public class FinalReportCard : MonoBehaviour
         score3.text = s3.ToString();
 
         totalScore.text = (s1 + s2 + s3).ToString();
-
-        // TODO: Replace text functions here with sprites
+        
 
         float scorePercentage = (float)(s1+ s2 +s3) / 150f;
-        letterGrade.text = "F";
+        stamp.sprite = fStamp;
         header.text = "C’est Bullshit!";
 
         ParticleSystem.EmissionModule em = ps.emission;
@@ -50,26 +53,26 @@ public class FinalReportCard : MonoBehaviour
 
         if (scorePercentage >= 0.5f)
         {
-            letterGrade.text = "D";
+            stamp.sprite = dStamp;
             header.text = "Laisse tomber…";
             em.rateOverTime = 5f;
         }
         if(scorePercentage > 0.6f)
         {
-            letterGrade.text = "C";
+            stamp.sprite = cStamp;
             header.text = "Allez!";
             em.rateOverTime = 10f;
         }
         if(scorePercentage > 0.8f)
         {
-            letterGrade.text = "B";
+            stamp.sprite = bStamp;
             header.text = "Génial!";
             em.rateOverTime = 20f;
         }
         
         if(scorePercentage >= 1.0f)
         {
-            letterGrade.text = "A+";
+            stamp.sprite = aStamp;
             header.text = "C'est Magnifique!";
             em.rateOverTime = 50f;
         }
