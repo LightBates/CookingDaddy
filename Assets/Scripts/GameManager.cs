@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     // Variables used for the "date"
     [SerializeField] private string dateName;
     [SerializeField] private Sprite datePic;
+    private List<int> picList = new List<int>();
     [SerializeField] private int preferredZest;
     [SerializeField] private int preferredPinch;
     [SerializeField] private int preferredSaute;
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Restart"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         else if (Input.GetButtonDown("Exit"))
         {
@@ -72,9 +73,16 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Set default values
+        minigameList.Clear();
         for (int i = 0; i < minigameSceneIndices.Length; i++)
         {
             minigameList.Add(minigameSceneIndices[i]);
+        }
+
+        picList.Clear();
+        for (int i = 0; i < potentialPics.Length; i++)
+        {
+            picList.Add(i);
         }
 
         int randoValue;
@@ -101,7 +109,10 @@ public class GameManager : MonoBehaviour
         {
             if (potentialPics.Length != 0)
             {
-                datePic = potentialPics[(int)(Random.value * (potentialPics.Length - 1))];
+                int randoVal = (int)(Random.value * (picList.Count));
+                datePic = potentialPics[picList[randoVal]];
+                picList.RemoveAt(randoVal);
+                Debug.Log(picList.Count);
             }
 
             dateName = potentialNames[(int)(Random.value * (potentialNames.Length - 1))];

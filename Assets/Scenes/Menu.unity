@@ -6063,7 +6063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491707902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -44, z: 0}
+  m_LocalPosition: {x: 0, y: -121, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1346685001}
@@ -6104,7 +6104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -142}
+  m_AnchoredPosition: {x: 0, y: -219}
   m_SizeDelta: {x: 100, y: 51.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573830026
@@ -9104,8 +9104,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "CREDITS\r\n\nMarcus Holm (@HolmBoyQ)\nEngineering, Design, Production\r\n\nLight
     Bates (@LightDiscordant)\nArt, Design, Production\r\n\nGalen Frese\nWriting\r\n\nCaitlin
-    McLaughlin (@Thunder_Horns)\nArt \r\n\r\nSPECIAL THANKS\r\nTyler McCombs\r\nBen
-    Decker"
+    McLaughlin (@Thunder_Horns)\nArt \r\n\n\"Winter Fun\" by TeknoAXE\n\nSPECIAL THANKS\r\n\nTyler
+    McCombs\r\nBen Decker"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9133,12 +9133,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 145.35
+  m_fontSize: 109.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 250
+  m_fontSizeMax: 109.33
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
@@ -9174,12 +9174,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1346685002}
-    characterCount: 232
+    characterCount: 258
     spriteCount: 0
-    spaceCount: 31
-    wordCount: 27
+    spaceCount: 37
+    wordCount: 31
     linkCount: 0
-    lineCount: 17
+    lineCount: 20
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -9668,7 +9668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -8}
+  m_AnchoredPosition: {x: -0, y: -33}
   m_SizeDelta: {x: 100, y: 51.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417756369
@@ -9691,7 +9691,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bb0040d0a643d3641b4d80dafff3a84f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 843461e5ce5348f4482ba17c3ab72c28, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -10758,7 +10758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684236570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -77, z: 0}
   m_LocalScale: {x: 4.173914, y: 4.173914, z: 4.1739135}
   m_Children:
   - {fileID: 2064801249}

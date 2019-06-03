@@ -69,7 +69,7 @@ public class PinchingManager : MonoBehaviour
         {
             pinchLevel = 1;
         }
-        if(dist > thirdLevelAnswer)
+        if(dist >= thirdLevelAnswer)
         {
             pinchLevel = 2;
         }
