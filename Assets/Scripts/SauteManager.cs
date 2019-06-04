@@ -33,9 +33,9 @@ public class SauteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int counter = 0;
 
-        answerTable = (int)(Random.value * (counter / 3));
+        answerTable = (int)(Random.value * answers.Length);
+        Debug.Log(answerTable);
 
         answerText.text = answers[0];
         questionText.text = questions[answerTable];

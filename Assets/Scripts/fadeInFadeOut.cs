@@ -32,6 +32,10 @@ public class fadeInFadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Confirm"))
+        {
+            SceneManager.LoadScene(1);
+        }
         timer += Time.deltaTime;
 
         if(fadingOut)

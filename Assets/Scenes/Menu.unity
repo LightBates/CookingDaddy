@@ -9072,7 +9072,7 @@ RectTransform:
   m_GameObject: {fileID: 1346685000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23958328, y: 0.23958328, z: 0.2395833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 491707903}
   m_RootOrder: 0
@@ -9080,7 +9080,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.2, y: -503}
-  m_SizeDelta: {x: 3433.5, y: 2837.2}
+  m_SizeDelta: {x: 800, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346685002
 MonoBehaviour:
@@ -9107,8 +9107,9 @@ MonoBehaviour:
     McLaughlin (@Thunder_Horns)\nArt \r\n\n\"Winter Fun\" by TeknoAXE\n\nSPECIAL THANKS\r\n\nTyler
     McCombs\r\nBen Decker"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6403017e4c27adc45ae2310d79e10dcd, type: 2}
+  m_sharedMaterial: {fileID: -8315946789690311929, guid: 6403017e4c27adc45ae2310d79e10dcd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9133,7 +9134,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 109.35
+  m_fontSize: 32.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9616,7 +9617,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416391085}
-  m_LocalRotation: {x: -0, y: -0, z: -0.16449276, w: 0.9863783}
+  m_LocalRotation: {x: -0, y: -0, z: 0.145423, w: 0.9893696}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9628,10 +9629,10 @@ RectTransform:
   - {fileID: 869206784}
   m_Father: {fileID: 1235456808}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.936}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.724}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -377, y: 349}
+  m_AnchoredPosition: {x: -550, y: 342}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1417756367

@@ -5777,8 +5777,8 @@ MonoBehaviour:
   questions:
   - I learned I was adopted when I was an adult. Through an unfortunate chain of events,
     it was then revealed the person I was dating was actually my biological cousin...
-  - I learned I was adopted when I was an adult. Through an unfortunate chain of events,
-    it was then revealed the person I was dating was actually my biological cousin...
+  - "I want to go to a country where it\u2019s culturally acceptable to shit in the
+    street, you know? Just to see if I could."
   - "On my person is a jade egg. Would you care to guess where it\u2019s hidden?"
   answerText: {fileID: 1996362261545431761}
   questionText: {fileID: 7234860713709379588}

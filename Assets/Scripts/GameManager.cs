@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     // Variables used for the "date"
     [SerializeField] private string dateName;
+    private List<int> nameList = new List<int>();
     [SerializeField] private Sprite datePic;
     private List<int> picList = new List<int>();
     [SerializeField] private int preferredZest;
@@ -84,6 +85,11 @@ public class GameManager : MonoBehaviour
         {
             picList.Add(i);
         }
+        nameList.Clear();
+        for (int i = 0; i < potentialNames.Length; i++)
+        {
+            nameList.Add(i);
+        }
 
         int randoValue;
 
@@ -109,16 +115,17 @@ public class GameManager : MonoBehaviour
         {
             if (potentialPics.Length != 0)
             {
-                int randoVal = (int)(Random.value * (picList.Count));
-                datePic = potentialPics[picList[randoVal]];
-                picList.RemoveAt(randoVal);
-                Debug.Log(picList.Count);
+                int rand = (int)(Random.value * (picList.Count));
+                datePic = potentialPics[picList[rand]];
+                picList.RemoveAt(rand);
             }
-
-            dateName = potentialNames[(int)(Random.value * (potentialNames.Length - 1))];
             
 
-            
+            int randoVal = (int)(Random.value * (nameList.Count));
+            dateName = potentialNames[nameList[randoVal]];
+            nameList.RemoveAt(randoVal);
+
+
             preferredZest = (int)(Random.value * 3f);
             preferredPinch = (int)(Random.value * 3f);
             preferredSaute = (int)(Random.value * 3f);
