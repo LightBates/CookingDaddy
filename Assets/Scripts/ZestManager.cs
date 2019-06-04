@@ -87,6 +87,8 @@ public class ZestManager : MonoBehaviour
 
     void IncreaseZest()
     {
+            this.GetComponent<AudioSource>().Play();
+
         zestLevel++;
         zestText.text = zestLevel.ToString();
         if(zestLevel > secondLevelAnswer)

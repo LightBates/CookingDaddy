@@ -44,6 +44,7 @@ public class MovingFinger : MonoBehaviour
 
             if (Input.GetButtonDown("Confirm"))
             {
+                this.GetComponent<AudioSource>().Play();
                 amount = Vector3.Distance(this.transform.localPosition, leftPos);
                 dunkStartPos = this.transform.localPosition;
                 dunkEndPos = this.transform.localPosition;

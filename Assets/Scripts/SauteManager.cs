@@ -54,6 +54,7 @@ public class SauteManager : MonoBehaviour
         {
             if (counting)
             {
+                this.GetComponent<AudioSource>().Stop();
                 counting = false;
                 ps.Stop();
 
@@ -71,6 +72,7 @@ public class SauteManager : MonoBehaviour
             }
             else
             {
+                this.GetComponent<AudioSource>().Play();
                 ps.Play();
                 counting = true;
             }
