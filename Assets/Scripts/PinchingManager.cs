@@ -48,7 +48,7 @@ public class PinchingManager : MonoBehaviour
     {
         float distance = 0f;
 
-        distance = Vector3.Distance(thumb.transform.localPosition, finger.transform.localPosition);
+        distance = Mathf.Abs(Vector3.Distance(thumb.transform.localPosition, finger.transform.localPosition));
         if(distance > thirdLevelAnswer)
         {
             answerText.text = sortedAnswers[answerTable, 2];
